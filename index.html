@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>树洞night</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+    <style>
+      /* 小屏幕手机端 */
+                              @media (min-width: 0px) and (max-width:768px) {
+                                .div1{
+                                  width: 100px;
+                                  height: 100px;
+                                  background-color: red;
+                                }
+                              }
+                              
+                              /* 中等屏幕（桌面显示器，大于等于 992px） */
+                              @media (min-width: 768px) and (max-width:992px){
+                                .div1{
+                                  width: 300px;
+                                  height: 300px;
+                                  background-color: blue;
+                                }
+                              }
+                              
+                              /* 大屏幕（大桌面显示器，大于等于 1200px） */
+                              @media (min-width: 992px) {
+                                .div1{
+                                  width: 500px;
+                                  height: 500px;
+                                  background-color: aqua;
+                                }
+                              }
+    </style>
+    <style type="text/css">
+      #minititle{
+                        
+                              margin-top:24px;
+                        
+                              margin-bottom: 6px;
+                        
+                            }
+                            #row{
+                        
+                              margin-top:7px;
+                              
+                              margin-bottom: 7px;
+                        
+                        
+                            }
+                            #bt{
+                        
+                              background-color:#0095FF;
+                        
+                        
+                            }
+                            #inputtext{
+                        
+                             height:50px;
+                        
+                        
+                           }
+    </style>
+
+
+  </head>
+  <body>
+
+
+    <h3 id="title" style="color:#0095FF;text-align: center;font: bold;">树洞Night问卷
+    </h3>
+
+    <div id="content1">
+      <div id="minititle">
+        <text style="color:#FF0000;">* </text>性别
+      </div>
+      <table border="1" style="border-collapse: collapse; width: 100%;border:solid #CCCCCC; ; border-width:1px">
+        <tr>
+          <td onclick="trwoman();">
+            <div id="row">
+              <input type="radio" name="sex" id="woman" value="女">女</div>
+          </td>
+        </tr>
+        <tr>
+          <td onclick="trman();">
+            <div id="row">
+              <input type="radio" name="sex" id="man" value="男">男</div>
+          </td>
+        </tr>
+      </table>
+
+
+      <div id="minititle">
+        <text style="color:#FF0000">* </text>年龄
+      </div>
+      <div>
+        <input style="height:25px;width: 98%; border:solid #CCCCCC; ; border-width:1px" type="number" id="age" name="age">
+      </div>
+
+
+      <div id="minititle">
+        <text style="color:#FF0000">* </text>对方性别要求
+      </div>
+      <table border="1" style="border-collapse: collapse; width: 100%;border:solid #CCCCCC; ; border-width:1px">
+        <tr>
+          <td onclick="tSexAll();">
+            <div id="row">
+              <input type="radio" name="targetsex" id="tSexAll" value="男女均可">男女均可</div>
+          </td>
+        </tr>
+        <tr>
+          <td onclick="tSexMan();">
+            <div id="row">
+              <input type="radio" name="targetsex" id="tSexMan" value="男">男</div>
+          </td>
+        </tr>
+        <tr>
+          <td onclick="tSexWoman();">
+            <div id="row">
+              <input type="radio" name="targetsex" id="tSexWoman" value="女">女</div>
+
+          </td>
+        </tr>
+      </table>
+
+      <div id="minititle">
+        <text style="color:#FF0000">* </text>期望沟通方式
+      </div>
+      <table border="1" style="border-collapse: collapse; width: 100%;border:solid #CCCCCC; ; border-width:1px">
+        <tr>
+          <td onclick="trCw();">
+            <div id="row">
+              <input type="checkbox" name="hobby" id="cW" value="[文字]">文字</div>
+          </td>
+        </tr>
+        <tr>
+          <td onclick="trCy();">
+            <div id="row">
+              <input type="checkbox" name="hobby" id="cY" value="[语音]">语音</div>
+          </td>
+        </tr>
+      </table>
+
+      <div id="minititle">
+        <text style="color:#FF0000;">* </text>匹配时限
+      </div>
+      <table border="1" style="border-collapse: collapse; width: 100%;border:solid #CCCCCC; ; border-width:1px">
+        <tr>
+          <td onclick="trOneTwo();">
+            <div id="row">
+              <input type="radio" name="time" id="oneTwo" value="12小时内">12小时内(推荐)</div>
+          </td>
+        </tr>
+        <tr>
+          <td onclick="trNow();">
+            <div id="row">
+              <input type="radio" name="time" id="now" value="立即">立即</div>
+          </td>
+        </tr>
+      </table>
+
+      <div id="minititle">微信/QQ(匹配成功后会直接添加好友)</div>
+      <div>
+        <input type="text" style="height:25px;width: 98%;border:solid #CCCCCC; ; border-width:1px " id="wechat">
+      </div>
+
+      <div id="minititle">备注</div>
+      <div>
+        <input type="text" style="height:25px;width: 98%; border:solid #CCCCCC; ; border-width:1px" id="memo">
+      </div>
+
+
+
+      <div id="minititle">
+
+        <input onclick="commit();" type="button" style="height:35px;width: 98%;border: 0px;color: white;font: bold; " id="bt" value="提交"> <!-- 有默认事件，一旦点击会触发form表单，向默认路径发送请求 -->
+
+      </div>
+    </div>
+    <div id="result" style="display: none;text-align: center">
+      <div>已提交</div>
+      <div></div>
+      <div>请留意微信/QQ申请好友消息(有时匹配时间可能较长,请谅解!).其他问题请咨询淘宝客服</div>
+    </div>
+
+
+  </body>
+
+</html>
+
+
+<script>
+  var sendBotIdVip="a5a7ddc5-5fe4-46bb-895f-3acc7adbf72c";//专属
+            var sendBotIdCommon="889c74e4-7b03-4352-9a6d-0dccdeda8528";//普通
+         var sendBotId=sendBotIdCommon;//默认普通
+         var locationName="未知";
+        
+        
+        
+            //获取元素
+         
+        
+            //绑定事件
+        
+        window.onload = function(){
+        
+         　　　  // console.log("你好");
+              //1、创建对象
+          const xhr = new XMLHttpRequest();
+        
+              //2、初始化 设置请求方法和url
+              // xhr.open('GET', 'http://127.0.0.1:8000/server?t=1000');//带参url
+          xhr.open('GET', 'https://restapi.amap.com/v3/ip?key=a09332706a3e471572dbb2c84b5753fd');
+        
+              //3、发送
+          xhr.send();
+        
+              //4、事件绑定：处理服务器返回的结果
+              //onreadystatechange：当状态改变的时候，有0，1，2，3，4的值
+          xhr.onreadystatechange = function() {
+                //判断响应结果
+                if (xhr.readyState == 4) { //服务端返回所有结果
+                  //判断响应状态，200-300之间说明响应成功
+                  if (xhr.status >= 200 && xhr.status < 300) {
+                    //处理结果 行 头 空行 体
+        
+                    console.log(xhr.response); //获取响应体
+                    var data = JSON.parse(xhr.response)
+          console.log(data.province+"-"+data.city); //获取响应体
+          locationName=data.province+"-"+data.city;
+        
+        } else {
+          console.log("连接出错了！！！");
+        }
+        }
+        }
+        
+        　　}
+        
+        function commit(){     
+        
+        var sexValue=null;
+              //性别
+          if(document.getElementById("woman").checked){
+            sexValue=document.getElementById("woman").value;
+          }
+          if(document.getElementById("man").checked){
+            sexValue=document.getElementById("man").value;
+          }
+        
+              //年龄
+          var ageValue=document.getElementById("age").value;
+        
+              //对方性别
+          var tSexValue=null;
+          if(document.getElementById("tSexAll").checked){
+            tSexValue=document.getElementById("tSexAll").value;
+          }
+          if(document.getElementById("tSexMan").checked){
+            tSexValue=document.getElementById("tSexMan").value;
+          }
+          if(document.getElementById("tSexWoman").checked){
+            tSexValue=document.getElementById("tSexWoman").value;
+          }
+          //匹配时限
+          var timeValue=null;
+         if(document.getElementById("oneTwo").checked){
+            timeValue=document.getElementById("oneTwo").value;
+          }
+          if(document.getElementById("now").checked){
+            timeValue=document.getElementById("now").value;
+          }
+              //沟通方式
+          var cTypeValue="";
+          if(document.getElementById("cW").checked){
+            cTypeValue=cTypeValue+document.getElementById("cW").value;
+          }
+          if(document.getElementById("cY").checked){
+            cTypeValue=cTypeValue+document.getElementById("cY").value;
+          }
+        
+        
+          if((sexValue==null)||ageValue==""||(tSexValue==null)||(cTypeValue=="")||timeValue==null){
+            alert('请检查必填项');
+          }else{
+        
+            judgeWxSend(sexValue,ageValue,tSexValue,cTypeValue,document.getElementById("wechat").value,document.getElementById("memo").value,timeValue);
+        
+          }
+          console.log(locationName); 
+        }
+        function trwoman(){     
+        document.getElementById("woman").checked=true;
+        }
+        function trman(){     
+        document.getElementById("man").checked=true;
+        }
+        ///////////////
+        function tSexAll(){     
+        document.getElementById("tSexAll").checked=true;
+        }
+        function tSexMan(){     
+        document.getElementById("tSexMan").checked=true;
+        }
+        function tSexWoman(){     
+        document.getElementById("tSexWoman").checked=true;
+        }
+        
+        function trOneTwo(){     
+        document.getElementById("oneTwo").checked=true;
+        }
+        function trNow(){     
+        document.getElementById("now").checked=true;
+        }
+        ///////////
+        function trCw(){     
+        document.getElementById("cW").checked=!document.getElementById("cW").checked;
+        }
+        function trCy(){     
+        document.getElementById("cY").checked=!document.getElementById("cY").checked;
+        }
+        function judgeWxSend(sexValue,ageValue,tSexValue,cTypeValue,wechatValue,memoValue,timeValue){     //先定义方法，再调用
+        
+         
+        
+          var inJJJ=false;
+          if(locationName=="未知"){
+            inJJJ=false
+          }else  if(locationName.includes("北京")||locationName.includes("河北")||locationName.includes("天津")){
+        
+           inJJJ=true;
+         }else{
+          inJJJ=false;
+        }
+        if(sexValue=="男"&&tSexValue=="女"){
+            //男找女-专属
+          sendBotId=sendBotIdVip;
+        } else   if(wechatValue==""){
+            //未填微信号-专属
+          sendBotId=sendBotIdVip;
+        }  else   if(inJJJ){
+            //河北,天津,北京-专属
+          sendBotId=sendBotIdVip;
+        
+        } 
+        pushMsg(sendBotId,sexValue,ageValue,tSexValue,cTypeValue,wechatValue,memoValue,timeValue);
+        
+        }
+        
+        function pushMsg(sendBotId,sexValue,ageValue,tSexValue,cTypeValue,wechatValue,memoValue,timeValue){     
+        
+        
+          var xhr = new XMLHttpRequest();
+          var url="https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key="+sendBotId;
+           var purl="/cgi-bin/webhook/send?key="+sendBotId;
+          xhr.open("POST", purl, true);
+        
+          xhr.setRequestHeader("Content-type", "application/json");
+        
+          xhr.onreadystatechange = function() {
+        
+            if (xhr.readyState == 4) {
+        
+             if (xhr.status == 200) {
+              // var data = JSON.parse(xhr.response)
+              // window.location.href = us.nextUrl;
+          var content = document.getElementById('content1');
+          var result = document.getElementById('result');
+          content.style.display="none"
+          result.style.display="block"
+            }else{
+              alert(data.errmsg)
+            }
+        
+          }else{
+        
+          }
+        
+        };
+        
+        xhr.send(JSON.stringify({
+        
+          "msgtype" :"text",
+        
+          "text" :{ "content": "性别要求:"+tSexValue+"\n"+
+        "接单时限:"+timeValue+"\n"+
+        
+          "沟通方式:"+cTypeValue+"\n"+
+           "备注:"+memoValue+"\n"+
+           "微信号:"+wechatValue+"\n"+
+           "\n"+
+              "性别:"+sexValue+"\n"+
+               "年龄:"+ageValue+"\n"+
+                 "地区:"+locationName+"\n"
+        }
+        
+        }));
+        }
+</script>
